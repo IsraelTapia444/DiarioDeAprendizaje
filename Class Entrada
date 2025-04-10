@@ -1,0 +1,68 @@
+
+
+public class Entrada {
+    private LocalDate fecha;
+    private String actividadesRealizadas;
+    private String dificultades;
+    private String herramientas;
+
+    public LocalDate getFecha() {
+        return fecha;
+    }
+
+    public String getActividadesRealizadas() {
+        return actividadesRealizadas;
+    }
+
+    public String getDificultades() {
+        return dificultades;
+    }
+
+    public String getHerramientas() {
+        return herramientas;
+    }
+
+    public void setFecha(LocalDate fecha) {
+        this.fecha = fecha;
+    }
+
+    public void setActividadesRealizadas(String actividadesRealizadas) {
+        this.actividadesRealizadas = actividadesRealizadas;
+    }
+
+    public void setDificultades(String dificultades) {
+        this.dificultades = dificultades;
+    }
+
+    public void setHerramientas(String herramientas) {
+        this.herramientas = herramientas;
+    }
+
+    public void pedir() {
+        BufferedReader lector = new BufferedReader(new InputStreamReader(System.in));
+
+        try {
+            System.out.print("Ingrese la fecha (formato: AAAA-MM-DD): ");
+            String fechaStr = lector.readLine();
+            this.fecha = LocalDate.parse(fechaStr);
+            do {
+            System.out.print("Ingrese las actividades realizadas: ");
+            this.actividadesRealizadas = lector.readLine();
+            }while (actividadesRealizadas.isBlank());
+            
+            do {
+            System.out.print("Ingrese las dificultades encontradas: ");
+            this.dificultades = lector.readLine();
+            }while (dificultades.isBlank());
+            
+            do {
+            System.out.print("Ingrese las herramientas utilizadas: ");
+            this.herramientas = lector.readLine();
+            }while (herramientas.isBlank());
+        } catch (IOException e) {
+            System.out.println("Error al leer los datos: " + e.getMessage());
+        } catch (Exception e) {
+            System.out.println("Error en el formato de fecha u otro dato: " + e.getMessage());
+        }
+    }
+}
