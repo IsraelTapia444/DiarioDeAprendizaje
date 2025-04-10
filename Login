@@ -1,0 +1,30 @@
+public static String pedirCadena(String cad) throws IOException
+	{
+		BufferedReader lector=new BufferedReader(new InputStreamReader(System.in));
+		String c;
+		do {System.out.println("Introduzca "+cad);
+		    c=lector.readLine();
+		   }while(c.isEmpty());
+		return c;
+	}
+	public void login (String u, String p) throws IOException {
+		String usuario;
+		String password;
+		do {
+			usuario=pedirCadena("el usuario");
+			password=pedirCadena("la contraseña");
+		} while (password.equalsIgnoreCase(p)==false || usuario.equalsIgnoreCase(u)==false);
+		System.out.println("Sescion iniciada con éxito");
+	}
+	public static String[] Registrarse () throws IOException {
+		String[]datos=new String[2];
+		String usuario=pedirCadena("el usuario");
+		String password1;
+		String password2;
+		do {
+			password1=pedirCadena("la contraseña");
+			password2=pedirCadena("la contraseña de nuevo");
+		} while (password1.equalsIgnoreCase(password2)==false);
+		System.out.println("Se ha registrado con éxito");
+		return datos;
+	}
