@@ -1,0 +1,14 @@
+public static void rellenarfichero(Entrada e) {
+		File f=new File("Entrada.txt");
+		FileWriter fw=new FileWriter(f);
+		PrintWriter pw=new PrintWriter(fw);
+		
+		pw.println(e.getFecha);
+		pw.println(e.getActividadesRealizadas);
+		pw.println(e.getDificultades);
+		pw.println(e.getHerramientas);
+		pw.println("-");
+		
+		pw.flush();pw.close();
+		fw.close();
+	}
