@@ -1,0 +1,12 @@
+public static void leerFichero(File f) throws IOException {
+		if(f.exists()) {
+			FileReader fr = new FileReader(f);
+			BufferedReader br = new BufferedReader(fr);
+			String cad;
+			while((cad = br.readLine()) != null) {
+				System.out.println(cad);
+			}
+			fr.close();
+			br.close();
+		}
+	}
